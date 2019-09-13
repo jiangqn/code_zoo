@@ -3,7 +3,7 @@
 import numpy as np
 
 def cohen_kappa(a, b):
-    assert a.shape == b.shape
+    assert a.dtype == np.int32 and b.dtype == np.int32 and a.shape == b.shape
     po = (a == b).astype(np.float32).mean()
     categories = sorted(set(list(np.concatenate((a, b), axis=0))))
     mp = {}
